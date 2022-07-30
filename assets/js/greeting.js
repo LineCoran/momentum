@@ -12,6 +12,8 @@ function showGreeting() {
     const timeOfDay = getTimeOfDay()
     const greetingText = `Good ${timeOfDay}`;
     greeting.innerHTML = greetingText;
+    window.addEventListener('beforeunload', setLocaleStorage);
+    window.addEventListener('load', getLocaleStorage);
 }
 
 function setLocaleStorage() {
@@ -24,8 +26,4 @@ function getLocaleStorage() {
     }
 }
 
-showGreeting();
-window.addEventListener('beforeunload', setLocaleStorage);
-window.addEventListener('load', getLocaleStorage);
-
-export default getTimeOfDay;
+export default showGreeting;

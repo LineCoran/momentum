@@ -1,4 +1,3 @@
-import getTimeOfDay from './greeting.js';
 let randomNum = getRandomNum(20);
 const prevSlideButtom = document.querySelector('.slide-prev');
 const nextSlideButtom = document.querySelector('.slide-next');
@@ -7,7 +6,14 @@ const body = document.getElementById('body');
 function getRandomNum(max) {
     return Math.floor(Math.random() * max + 1);
 }
-export default getRandomNum;
+//export default getRandomNum;
+
+function getTimeOfDay() {
+    const listTimeOfDay = ['night', 'morning', 'afternoon', 'evening'];
+    const currentDate = new Date;
+    const hours = currentDate.getHours();
+    return listTimeOfDay[Math.floor(hours / 6)];
+}
 
 function setBg(random) {
     const img = new Image();
@@ -16,8 +22,6 @@ function setBg(random) {
         body.style.background = `url(${img.src})`;
     }
 }
-
-
 
 function getSlidePrev() {
     (randomNum == 1) ? randomNum = 20 : randomNum--;
@@ -29,8 +33,12 @@ function getSlideNext() {
     setBg(randomNum);
 }
 
-setBg(randomNum);
-prevSlideButtom.addEventListener('click', getSlidePrev)
-nextSlideButtom.addEventListener('click', getSlideNext)
+export default function initSliders() {
+    setBg(randomNum);
+    prevSlideButtom.addEventListener('click', getSlidePrev)
+    nextSlideButtom.addEventListener('click', getSlideNext)
+}
+
+
 
 
