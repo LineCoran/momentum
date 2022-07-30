@@ -75,6 +75,7 @@ function initPlayList() {
     audioButtonPlay.addEventListener('click', playAudio);
     audioButtonPlay.addEventListener('click', function () {
     audioButtonPlay.classList.toggle('pause');
+    audio.addEventListener('ended', playNext)
 })
 }
 
