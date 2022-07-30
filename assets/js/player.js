@@ -1,5 +1,3 @@
-
-
 const audio = new Audio();
 const audioButtonPlay = document.querySelector('.play');
 const audioButtonPlayNext = document.querySelector('.play-next');
@@ -7,9 +5,20 @@ const audioButtonPlayPrev = document.querySelector('.play-prev');
 const audioPlayList = document.querySelector('.play-list');
 let isPlay = false;
 let audioNumber = 0;
+let playListItem;
 
-import playList from './playList.js';
-console.log(playList);
+function createPlayList() {
+    playList.forEach(function (el) {
+        const li = document.createElement('li');
+        li.classList.add('play-item');
+        li.innerHTML = el.title;
+        audioPlayList.append(li);
+        }
+    
+    )
+    playListItem =  document.querySelectorAll('.play-item');
+}
+
 
 
 function playAudio() {
@@ -56,23 +65,19 @@ function playPrev() {
     isPlay = false;
     playAudio(audioNumber);
 }
+import playList from "./playList.js";
 
-function createPlayList() {
-        playList.forEach(function (el) {
-            const li = document.createElement('li');
-            li.classList.add('play-item');
-            li.innerHTML = el.title;
-            audioPlayList.append(li);
-        }
-    )
-}
 
-createPlayList();
-const playListItem =  document.querySelectorAll('.play-item');
-
-audioButtonPlayNext.addEventListener('click', playNext);
-audioButtonPlayPrev.addEventListener('click', playPrev);
-audioButtonPlay.addEventListener('click', playAudio);
-audioButtonPlay.addEventListener('click', function () {
+function initPlayList() {  
+    createPlayList(); 
+    audioButtonPlayNext.addEventListener('click', playNext);
+    audioButtonPlayPrev.addEventListener('click', playPrev);
+    audioButtonPlay.addEventListener('click', playAudio);
+    audioButtonPlay.addEventListener('click', function () {
     audioButtonPlay.classList.toggle('pause');
 })
+}
+
+export default initPlayList;
+
+
