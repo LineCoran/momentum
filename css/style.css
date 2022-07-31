@@ -63,6 +63,12 @@ body {
   border-radius: 5px;
   height: 8px;
 }
+.volume__container {
+  width: 100%;
+}
+.volume {
+  width: 100%;
+}
 
 .play-list {
   text-align: left;

@@ -5,6 +5,7 @@ const audioButtonPlayPrev = document.querySelector('.play-prev');
 const audioPlayList = document.querySelector('.play-list');
 const audioProgress = document.querySelector('.progress');
 const audioProgressContainer = document.querySelector('.progress__container');
+const audioVolume = document.querySelector('.volume');
 let isPlay = false;
 let audioNumber = 0;
 let playListItem;
@@ -31,6 +32,7 @@ function playAudio() {
     audio.currentTime = 0;
     if(!isPlay) {
         isPlay = true;
+        audio.volume = audioVolume.value/100;
         audio.play();
         playListItem[audioNumber].classList.add('item-active');
     } else {
@@ -78,6 +80,10 @@ function setProgress(e) {
     audio.currentTime = clientX / width *audioDuration;
 }
 
+function setValue() {
+    audio.volume = audioVolume.value/100;
+}
+
 import playList from "./playList.js";
 
 export default function initPlayList() {  
@@ -90,6 +96,7 @@ export default function initPlayList() {
     audio.addEventListener('ended', playNext);
     audio.addEventListener('timeupdate', updateProgress);
     audioProgressContainer.addEventListener('click', setProgress);
+    audioVolume.addEventListener('change', setValue);
 })
 }
 
