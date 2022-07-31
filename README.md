@@ -1,1 +1,1 @@
-https://LineCoran.github.io/rsschool-cv/
+https://LineCoran.github.io/momentum/
