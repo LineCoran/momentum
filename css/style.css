@@ -47,6 +47,15 @@ body {
   margin-bottom: 28px;
 }
 
+.audio__container {
+  width: 100%;
+  height: 50px;
+}
+
+.track__name {
+  height: 100%;
+}
+
 .progress__container {
   margin-bottom: 15px;
   background: #eff3f5;

@@ -6,6 +6,7 @@ const audioPlayList = document.querySelector('.play-list');
 const audioProgress = document.querySelector('.progress');
 const audioProgressContainer = document.querySelector('.progress__container');
 const audioVolume = document.querySelector('.volume');
+const audioCurrentName = document.querySelector('.track__name');
 let isPlay = false;
 let audioNumber = 0;
 let playListItem;
@@ -17,7 +18,6 @@ function createPlayList() {
         li.innerHTML = el.title;
         audioPlayList.append(li);
         }
-    
     )
     playListItem =  document.querySelectorAll('.play-item');
 }
@@ -34,6 +34,7 @@ function playAudio() {
         isPlay = true;
         audio.volume = audioVolume.value/100;
         audio.play();
+        audioCurrentName.innerHTML = playList[audioNumber].title;
         playListItem[audioNumber].classList.add('item-active');
     } else {
         audio.pause();
