@@ -3,6 +3,8 @@ const audioButtonPlay = document.querySelector('.play');
 const audioButtonPlayNext = document.querySelector('.play-next');
 const audioButtonPlayPrev = document.querySelector('.play-prev');
 const audioPlayList = document.querySelector('.play-list');
+const audioProgress = document.querySelector('.progress');
+const audioProgressContainer = document.querySelector('.progress__container');
 let isPlay = false;
 let audioNumber = 0;
 let playListItem;
@@ -18,8 +20,6 @@ function createPlayList() {
     )
     playListItem =  document.querySelectorAll('.play-item');
 }
-
-
 
 function playAudio() {
     playListItem.forEach(function (item) {
@@ -65,20 +65,31 @@ function playPrev() {
     isPlay = false;
     playAudio(audioNumber);
 }
+
+function updateProgress(e) {
+    const {currentTime, duration} = e.srcElement;
+    audioProgress.style.width = `${currentTime / duration *100}%`;
+}
+
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clientX = e.offsetX;
+    const audioDuration = audio.duration;
+    audio.currentTime = clientX / width *audioDuration;
+}
+
 import playList from "./playList.js";
 
-
-function initPlayList() {  
+export default function initPlayList() {  
     createPlayList(); 
     audioButtonPlayNext.addEventListener('click', playNext);
     audioButtonPlayPrev.addEventListener('click', playPrev);
     audioButtonPlay.addEventListener('click', playAudio);
     audioButtonPlay.addEventListener('click', function () {
     audioButtonPlay.classList.toggle('pause');
-    audio.addEventListener('ended', playNext)
+    audio.addEventListener('ended', playNext);
+    audio.addEventListener('timeupdate', updateProgress);
+    audioProgressContainer.addEventListener('click', setProgress);
 })
 }
-
-export default initPlayList;
-
 
