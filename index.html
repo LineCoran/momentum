@@ -17,14 +17,13 @@
         <button class="play-next player-icon"></button>
       </div>
       <div class="audio__container">
-        <p class="track__name"></p>
+        <p class="track__name">Track name</p>
         <p class="track__duration"></p>
       </div>
-      <div class="progress__container">
-        <div class="progress"></div>
-      </div>
+      <input type="range" min="0" max="100" value="0" id="progress__audio" class="progress">
       <div class="volume__container">
-        <input type="range" min="0" max="100" value="20" class="volume">
+        <input type="range" min="0" max="100" value="20" class="volume progress">
+        <button class="audio-mute">Вкл</button>
       </div>
       <ul class="play-list"></ul>
     </div>
