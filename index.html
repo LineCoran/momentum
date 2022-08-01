@@ -18,11 +18,14 @@
       </div>
       <div class="audio__container">
         <p class="track__name">Track name</p>
-        <p class="track__duration"></p>
       </div>
-      <input type="range" min="0" max="100" value="0" id="progress__audio" class="progress">
+      <input class="progress" type="range" min="0" max="100" value="0" id="progress__audio" >
+      <div class="time__container">
+        <p class="exact-time" id="exact-time">00:00</p>
+        <p class="duration-time" id="duration-time">00:00</p>
+      </div>
       <div class="volume__container">
-        <input type="range" min="0" max="100" value="20" class="volume progress">
+        <input class="volume progress" type="range" min="0" max="100" value="20" >
         <button class="audio-mute">Вкл</button>
       </div>
       <ul class="play-list"></ul>
