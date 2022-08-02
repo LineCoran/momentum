@@ -1,5 +1,8 @@
-import showTime from "./time";
-showTime();
+import getGlobalLanguage from "./globalanguage";
+getGlobalLanguage();
+
+// import showTime from "./time";
+// showTime();
 
 import showGreeting from "./greeting";
 showGreeting();
@@ -15,3 +18,6 @@ initWeather();
 
 import initPlayList from "./player";
 initPlayList();
+
+import initTraslation from "./translation";
+initTraslation();
