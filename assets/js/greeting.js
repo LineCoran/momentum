@@ -1,16 +1,39 @@
 const greeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
 
-function getTimeOfDay() {
-    const listTimeOfDay = ['night', 'morning', 'afternoon', 'evening'];
+function getTimeOfDay(language) {
+    const listTimeOfDay = {
+        en: ['night', 'morning', 'afternoon', 'evening'],
+        ru: ['ночи', 'утро', 'день', 'вечер']
+    };
     const currentDate = new Date;
     const hours = currentDate.getHours();
-    return listTimeOfDay[Math.floor(hours / 6)];
+    return listTimeOfDay[language][Math.floor(hours / 6)];
 }
 
 function showGreeting() {
-    const timeOfDay = getTimeOfDay()
-    const greetingText = `Good ${timeOfDay}`;
+    let currentLanguage = localStorage.getItem('lang')
+    const timeOfDay = getTimeOfDay(currentLanguage); 
+    let greetingText;
+    if (currentLanguage=='en') {
+        greetingText = `Good ${timeOfDay}`;
+    } else {
+        switch(timeOfDay) {
+            case 'утро': 
+                greetingText = 'Доброе утро';
+                break;
+            case 'день': 
+                greetingText = 'Добрый дент';
+                break;
+            case 'вечер': 
+                greetingText = 'Добрый вечер';
+                break;
+            case 'ночь': 
+                greetingText = 'Доброй ночи';
+                break;    
+        }
+    }
+    
     greeting.innerHTML = greetingText;
     window.addEventListener('beforeunload', setLocaleStorage);
     window.addEventListener('load', getLocaleStorage);
