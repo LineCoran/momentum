@@ -4,6 +4,8 @@ const weatherTemp = document.querySelector('.temperature');
 const weatherWind = document.querySelector('.wind');
 const weatherHumidity = document.querySelector('.humidity');
 const weatherDescription = document.querySelector('.weather-description');
+let lang;
+
 const LANGUAGES = {
     wind: {
         ru: "Скорость ветра: ",
@@ -19,11 +21,15 @@ const LANGUAGES = {
     }
     
 }
+const defaultCity = {
+    ru: 'Минск',
+    en: 'Minsk',
+}
 let country;
 
 
 export async function getWheter() {
-    let lang = localStorage.getItem('lang');
+    lang = localStorage.getItem('lang');
     try {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.value}&lang=${lang}&appid=ef4b203b5c247d84f19012a3a078402b&units=metric`;
         const res = await fetch(url);
@@ -36,9 +42,8 @@ export async function getWheter() {
         weatherDescription.innerHTML = data.weather[0].description;
         window.addEventListener('beforeunload', setLocaleStorage);
     } catch {
-        country.value = 'Минск';
         alert("city doesn't exist")
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=${lang}&appid=ef4b203b5c247d84f19012a3a078402b&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.value}&lang=${lang}&appid=ef4b203b5c247d84f19012a3a078402b&units=metric`;
         const res = await fetch(url);
         const data = await res.json();
         weatherIcon.className = 'weather-icon owf';
@@ -53,16 +58,22 @@ export async function getWheter() {
 }
 
 function createCity() {
+    let nameCity = localStorage.getItem('city');
+    lang = localStorage.getItem('lang');
     if (weatherBlock.firstChild.classList) {
         weatherBlock.firstChild.remove();
     }
     const city = document.createElement('input');
     city.type = "text";
     city.classList.add('city');
-    if (localStorage.getItem('city')) {
-        city.value = localStorage.getItem('city');
+    if (nameCity) {
+        if (nameCity == 'Минск' || nameCity == 'Minsk') {
+            city.value = defaultCity[lang]
+        } else {
+            city.value = localStorage.getItem('city');
+        }
     } else {
-        city.value = "Минск";
+        city.value = defaultCity[lang];
     }
     weatherBlock.prepend(city);
     country = document.querySelector('.city');
@@ -72,16 +83,10 @@ function setLocaleStorage() {
     localStorage.setItem('city', country.value)
 }
 
-function getLocaleStorage() {
-    if (localStorage.getItem('city')) {
-        country.value = localStorage.getItem('city');
-    }
-}
 
 export default function initWeather() {
     createCity();
     country.addEventListener('change', getWheter);
     getWheter();
-    window.addEventListener('load', getLocaleStorage);
 }
 

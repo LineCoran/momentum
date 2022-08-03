@@ -1,4 +1,4 @@
-let randomNum = getRandomNum(20);
+let randomNumGlobal = getRandomNum(20);
 const prevSlideButtom = document.querySelector('.slide-prev');
 const nextSlideButtom = document.querySelector('.slide-next');
 const body = document.getElementById('body');
@@ -6,7 +6,6 @@ const body = document.getElementById('body');
 function getRandomNum(max) {
     return Math.floor(Math.random() * max + 1);
 }
-//export default getRandomNum;
 
 function getTimeOfDay() {
     const listTimeOfDay = ['night', 'morning', 'afternoon', 'evening'];
@@ -15,26 +14,64 @@ function getTimeOfDay() {
     return listTimeOfDay[Math.floor(hours / 6)];
 }
 
-function setBg(random) {
+function setBgFromGitHub(random) {
+    let randomNum = random;
     const img = new Image();
-    img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${getTimeOfDay()}/${String(random).padStart(2, "0")}.jpg`;
+    img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${getTimeOfDay()}/${String(randomNum).padStart(2, "0")}.jpg`;
+    img.onload = () => {
+        body.style.background = `url(${img.src})`;
+    }
+}
+async function setBgFromUnsplah() {
+    const img = new Image();
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${getTimeOfDay()}&client_id=Ysjt3sAfpl5oAUJDd4RAGh7XSysXSuwfQzmyzP5BBew`;
+    const res = await fetch(url);
+    const data = await res.json();
+    img.src = data.urls.regular;
     img.onload = () => {
         body.style.background = `url(${img.src})`;
     }
 }
 
+async function setBgFromFLickR() {
+    const img = new Image();
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=25a9f4124b3d5bc6219a6107be4f7263&tags=${getTimeOfDay()}&extras=url_l&format=json&nojsoncallback=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    img.src = data.photos.photo[getRandomNum(100)].url_l;
+    img.onload = () => {
+        body.style.background = `url(${img.src})`;
+    }
+}
+
+function getLinkToImage(randomNum) {
+    let random = randomNum;
+    let linkSetting = localStorage.getItem('link');
+    switch(linkSetting) {
+        case 'github': 
+            setBgFromGitHub(random)
+            break;
+        case 'unsplash': 
+            setBgFromUnsplah();
+            break;
+        case 'flickr':
+            setBgFromFLickR()
+            break;
+    }
+}
+
 function getSlidePrev() {
-    (randomNum == 1) ? randomNum = 20 : randomNum--;
-    setBg(randomNum);
+    (randomNumGlobal == 1) ? randomNumGlobal = 20 : randomNumGlobal--;
+    getLinkToImage(randomNum);
 }
 
 function getSlideNext() {
-    (randomNum == 20) ? randomNum = 1 : randomNum++;
-    setBg(randomNum);
+    (randomNumGlobal == 20) ? randomNumGlobal = 1 : randomNumGlobal++;
+    getLinkToImage(randomNumGlobal);
 }
 
 export default function initSliders() {
-    setBg(randomNum);
+    getLinkToImage(randomNumGlobal);
     prevSlideButtom.addEventListener('click', getSlidePrev)
     nextSlideButtom.addEventListener('click', getSlideNext)
 }
