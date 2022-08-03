@@ -1,8 +1,8 @@
 import initSetting from "./globalanguage";
 initSetting();
 
-// import showTime from "./time";
-// showTime();
+import showTime from "./time";
+showTime();
 
 import showGreeting from "./greeting";
 showGreeting();
