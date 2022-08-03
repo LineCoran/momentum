@@ -1,5 +1,5 @@
-import getGlobalLanguage from "./globalanguage";
-getGlobalLanguage();
+import initSetting from "./globalanguage";
+initSetting();
 
 // import showTime from "./time";
 // showTime();

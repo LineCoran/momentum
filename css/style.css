@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Arial-MT';
-  src: url("../assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
+  src: url("../assets/fonts/Arial-MT.woff");
  }
 
 * {
@@ -28,7 +28,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  /* height: 30vh; */
+  height: 40vh;
   min-height: 220px;  
   padding: 20px;
 }
@@ -40,7 +40,7 @@ body {
   flex-direction: column;
   align-items: center;
   background: -webkit-linear-gradient(45deg, rgba(40, 40, 40, 0.7), rgba(133, 133, 133, 0.7));
-  padding: 15px 35px;
+  padding: 5px 35px;
   border-radius: 20px;
 }
 
@@ -49,12 +49,12 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .audio__container {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .track__name {
@@ -107,7 +107,7 @@ body {
 }
 /* ========VOLUME======== */
 .volume__container {
-  margin: 20px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -261,6 +261,10 @@ body {
   opacity: .6;
 }
 
+.weather-description {
+  text-transform: capitalize;
+}
+
 .main {
   position: relative;
   display: flex;
@@ -299,6 +303,7 @@ body {
 }
 
 .date {
+  text-transform: capitalize;
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
@@ -343,7 +348,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  height: 30vh;
+  height: 20vh;
   min-height: 160px;  
   padding: 20px;
 }
