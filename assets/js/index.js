@@ -1,4 +1,4 @@
-import initSetting from "./globalanguage";
+import initSetting from "./setting";
 initSetting();
 
 import showTime from "./time";

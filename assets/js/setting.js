@@ -1,11 +1,10 @@
-export const languageButton = document.querySelector('.change-language');
+export const langButton = document.getElementById('change_lang');
 
 function getGlobalLanguage() {
     let defaultLanguage = 'en';
     if (!localStorage.getItem('lang')) {
         localStorage.setItem('lang', defaultLanguage);
     }
-    languageButton.innerHTML = localStorage.getItem('lang');
 }
 
 function getGlobalLinkSource() {

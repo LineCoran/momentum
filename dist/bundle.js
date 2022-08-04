@@ -20,16 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./assets/js/globalanguage.js":
-/*!************************************!*\
-  !*** ./assets/js/globalanguage.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initSetting),\n/* harmony export */   \"languageButton\": () => (/* binding */ languageButton)\n/* harmony export */ });\nconst languageButton = document.querySelector('.change-language');\r\n\r\nfunction getGlobalLanguage() {\r\n    let defaultLanguage = 'en';\r\n    if (!localStorage.getItem('lang')) {\r\n        localStorage.setItem('lang', defaultLanguage);\r\n    }\r\n    languageButton.innerHTML = localStorage.getItem('lang');\r\n}\r\n\r\nfunction getGlobalLinkSource() {\r\n    let defaultLinkSource = 'github';\r\n    if (!localStorage.getItem('link')) {\r\n        localStorage.setItem('link', defaultLinkSource);\r\n    }\r\n}\r\n\r\nfunction initSetting () {\r\n    getGlobalLanguage();\r\n    getGlobalLinkSource();\r\n}\r\n\n\n//# sourceURL=webpack://momentum/./assets/js/globalanguage.js?");
-
-/***/ }),
-
 /***/ "./assets/js/greeting.js":
 /*!*******************************!*\
   !*** ./assets/js/greeting.js ***!
@@ -46,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _globalanguage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globalanguage */ \"./assets/js/globalanguage.js\");\n/* harmony import */ var _greeting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./greeting */ \"./assets/js/greeting.js\");\n/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./slider */ \"./assets/js/slider.js\");\n/* harmony import */ var _quotes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./quotes */ \"./assets/js/quotes.js\");\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./weather */ \"./assets/js/weather.js\");\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./player */ \"./assets/js/player.js\");\n/* harmony import */ var _translation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./translation */ \"./assets/js/translation.js\");\n\r\n(0,_globalanguage__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\r\n// import showTime from \"./time\";\r\n// showTime();\r\n\r\n\r\n(0,_greeting__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n\r\n\r\n(0,_slider__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n\r\n\r\n(0,_quotes__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n\r\n\r\n(0,_weather__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\r\n\r\n\r\n(0,_player__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\r\n\r\n\r\n(0,_translation__WEBPACK_IMPORTED_MODULE_6__[\"default\"])();\n\n//# sourceURL=webpack://momentum/./assets/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _setting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setting */ \"./assets/js/setting.js\");\n/* harmony import */ var _time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./time */ \"./assets/js/time.js\");\n/* harmony import */ var _greeting__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./greeting */ \"./assets/js/greeting.js\");\n/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider */ \"./assets/js/slider.js\");\n/* harmony import */ var _quotes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./quotes */ \"./assets/js/quotes.js\");\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./weather */ \"./assets/js/weather.js\");\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./player */ \"./assets/js/player.js\");\n/* harmony import */ var _translation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./translation */ \"./assets/js/translation.js\");\n\r\n(0,_setting__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\r\n\r\n(0,_time__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n\r\n\r\n(0,_greeting__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n\r\n\r\n(0,_slider__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n\r\n\r\n(0,_quotes__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\r\n\r\n\r\n(0,_weather__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\r\n\r\n\r\n(0,_player__WEBPACK_IMPORTED_MODULE_6__[\"default\"])();\r\n\r\n\r\n(0,_translation__WEBPACK_IMPORTED_MODULE_7__[\"default\"])();\n\n//# sourceURL=webpack://momentum/./assets/js/index.js?");
 
 /***/ }),
 
@@ -80,6 +70,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./assets/js/setting.js":
+/*!******************************!*\
+  !*** ./assets/js/setting.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initSetting),\n/* harmony export */   \"langButton\": () => (/* binding */ langButton)\n/* harmony export */ });\nconst langButton = document.getElementById('change_lang');\r\n\r\nfunction getGlobalLanguage() {\r\n    let defaultLanguage = 'en';\r\n    if (!localStorage.getItem('lang')) {\r\n        localStorage.setItem('lang', defaultLanguage);\r\n    }\r\n}\r\n\r\nfunction getGlobalLinkSource() {\r\n    let defaultLinkSource = 'github';\r\n    if (!localStorage.getItem('link')) {\r\n        localStorage.setItem('link', defaultLinkSource);\r\n    }\r\n}\r\n\r\nfunction initSetting () {\r\n    getGlobalLanguage();\r\n    getGlobalLinkSource();\r\n}\r\n\n\n//# sourceURL=webpack://momentum/./assets/js/setting.js?");
+
+/***/ }),
+
 /***/ "./assets/js/slider.js":
 /*!*****************************!*\
   !*** ./assets/js/slider.js ***!
@@ -90,13 +90,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./assets/js/time.js":
+/*!***************************!*\
+  !*** ./assets/js/time.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ showTime)\n/* harmony export */ });\n/* harmony import */ var _date__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./date */ \"./assets/js/date.js\");\n\r\nconst time = document.querySelector('.time');\r\n(0,_date__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\r\nfunction showTime() {\r\n    const date = new Date;\r\n    const currentTime = date.toLocaleTimeString();\r\n    time.innerHTML = currentTime;\r\n    setTimeout(showTime, 1000);\r\n    setTimeout(_date__WEBPACK_IMPORTED_MODULE_0__[\"default\"], 1000);\r\n} \r\n\n\n//# sourceURL=webpack://momentum/./assets/js/time.js?");
+
+/***/ }),
+
 /***/ "./assets/js/translation.js":
 /*!**********************************!*\
   !*** ./assets/js/translation.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initTraslation)\n/* harmony export */ });\n/* harmony import */ var _greeting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./greeting */ \"./assets/js/greeting.js\");\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather */ \"./assets/js/weather.js\");\n/* harmony import */ var _quotes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quotes */ \"./assets/js/quotes.js\");\n/* harmony import */ var _globalanguage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globalanguage */ \"./assets/js/globalanguage.js\");\n/* harmony import */ var _date__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./date */ \"./assets/js/date.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfunction translateGreating(){ \r\n    let currentLanguage = localStorage.getItem('lang');\r\n    if (currentLanguage==\"en\") {\r\n        localStorage.setItem('lang', 'ru');\r\n    } else {\r\n        localStorage.setItem('lang', 'en');\r\n    };\r\n}\r\n\r\n\r\nfunction initTraslation() {\r\n    _globalanguage__WEBPACK_IMPORTED_MODULE_3__.languageButton.addEventListener('click', function() {\r\n        _globalanguage__WEBPACK_IMPORTED_MODULE_3__.languageButton.innerHTML = localStorage.getItem('lang');\r\n        translateGreating()\r\n        ;(0,_weather__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n        (0,_quotes__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n        (0,_greeting__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n        (0,_date__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\r\n    })\r\n}\r\n\r\n\n\n//# sourceURL=webpack://momentum/./assets/js/translation.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initTraslation)\n/* harmony export */ });\n/* harmony import */ var _greeting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./greeting */ \"./assets/js/greeting.js\");\n/* harmony import */ var _weather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather */ \"./assets/js/weather.js\");\n/* harmony import */ var _quotes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quotes */ \"./assets/js/quotes.js\");\n/* harmony import */ var _setting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./setting */ \"./assets/js/setting.js\");\n/* harmony import */ var _date__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./date */ \"./assets/js/date.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nconst label = document.querySelector('.label__circle');\r\n\r\n\r\nfunction translateGreating(){ \r\n    let currentLanguage = localStorage.getItem('lang');\r\n    if (currentLanguage==\"en\") {\r\n        localStorage.setItem('lang', 'ru');\r\n    } else {\r\n        localStorage.setItem('lang', 'en');\r\n    };\r\n}\r\n\r\n\r\nfunction initTraslation() {\r\n    _setting__WEBPACK_IMPORTED_MODULE_3__.langButton.addEventListener('click', function(event) {\r\n        console.log('hello');\r\n        _setting__WEBPACK_IMPORTED_MODULE_3__.langButton.parentElement.classList.toggle('label-active');\r\n        label.classList.toggle('label__circle-active');\r\n        translateGreating()\r\n        ;(0,_weather__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n        (0,_quotes__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n        (0,_greeting__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n        (0,_date__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\r\n    })\r\n}\r\n\r\n\n\n//# sourceURL=webpack://momentum/./assets/js/translation.js?");
 
 /***/ }),
 
