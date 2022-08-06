@@ -1,32 +1,41 @@
 import showGreeting from "./greeting";
 import getWheter from "./weather";
 import initQuotes from "./quotes";
-import { langButton } from "./setting";
 import showDate from "./date";
+import initgPanel from "./settingPanel";
 
-const label = document.querySelector('.label__circle');
+const languagesButtons = document.querySelectorAll('.language__img');
 
-
-function translateGreating(){ 
-    let currentLanguage = localStorage.getItem('lang');
-    if (currentLanguage=="en") {
-        localStorage.setItem('lang', 'ru');
-    } else {
-        localStorage.setItem('lang', 'en');
-    };
+function setActiveEnglish() {
+    for (let i = 0; i<languagesButtons.length; i++){
+        if (languagesButtons[i].id == localStorage.getItem('lang')) {
+            languagesButtons[i].classList.add('language__img-active');
+        }
+    }
 }
 
+function changeLanguage() {
+    for (let i = 0; i<languagesButtons.length; i++){
+        languagesButtons[i].addEventListener('click', function(event){
+            let ev = event.target;
+            if(ev.classList.id == localStorage.getItem('lang')) {
+                return;
+            }
+            languagesButtons.forEach((obj) => obj.classList.remove('language__img-active'));
+            ev.classList.add('language__img-active');
+            localStorage.setItem('lang', ev.id);
+            getWheter();
+            initQuotes();
+            showGreeting();
+            showDate();
+            initgPanel();
+        })
+    }
+}
 
 export default function initTraslation() {
-    langButton.addEventListener('click', function(event) {
-        console.log('hello');
-        langButton.parentElement.classList.toggle('label-active');
-        label.classList.toggle('label__circle-active');
-        translateGreating()
-        getWheter();
-        initQuotes();
-        showGreeting();
-        showDate();
-    })
+    setActiveEnglish();
+    changeLanguage();
+
 }
 
