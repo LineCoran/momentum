@@ -1,5 +1,3 @@
-import languagesButtons from "./translation" 
-
 const settingButton = document.querySelector('.setting__link');
 const settingPanel = document.querySelector('.setting');
 

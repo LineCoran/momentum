@@ -22,7 +22,8 @@ initWeather();
 import initPlayList from "./player";
 initPlayList();
 
-
-
 import initTraslation from "./translation";
 initTraslation();
+
+import initSourceImage from "./imageSource";
+initSourceImage();
