@@ -1,4 +1,12 @@
-export const langButton = document.getElementById('change_lang');
+import languagesButtons from "./translation" 
+
+const settingButton = document.querySelector('.setting__link');
+const settingPanel = document.querySelector('.setting');
+
+settingButton.addEventListener('click', function() {
+settingPanel.classList.toggle('setting-show');
+})
+
 
 function getGlobalLanguage() {
     let defaultLanguage = 'en';

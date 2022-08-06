@@ -23,7 +23,7 @@ function showGreeting() {
                 greetingText = 'Доброе утро';
                 break;
             case 'день': 
-                greetingText = 'Добрый дент';
+                greetingText = 'Добрый день';
                 break;
             case 'вечер': 
                 greetingText = 'Добрый вечер';

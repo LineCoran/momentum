@@ -1,6 +1,9 @@
 import initSetting from "./setting";
 initSetting();
 
+import initPanel from "./settingPanel";
+initPanel();
+
 import showTime from "./time";
 showTime();
 
@@ -18,6 +21,8 @@ initWeather();
 
 import initPlayList from "./player";
 initPlayList();
+
+
 
 import initTraslation from "./translation";
 initTraslation();
