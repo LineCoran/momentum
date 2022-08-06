@@ -13,7 +13,6 @@ function setActiveEnglish() {
         }
     }
 }
-
 function changeLanguage() {
     for (let i = 0; i<languagesButtons.length; i++){
         languagesButtons[i].addEventListener('click', function(event){
@@ -32,10 +31,8 @@ function changeLanguage() {
         })
     }
 }
-
 export default function initTraslation() {
     setActiveEnglish();
     changeLanguage();
-
 }
 
