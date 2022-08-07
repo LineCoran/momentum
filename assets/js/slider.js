@@ -1,4 +1,4 @@
-let randomNumGlobal = getRandomNum(20);
+export let randomNumGlobal = getRandomNum(20);
 const prevSlideButtom = document.querySelector('.slide-prev');
 const nextSlideButtom = document.querySelector('.slide-next');
 const body = document.getElementById('body');
@@ -23,8 +23,9 @@ function setBgFromGitHub(random) {
     }
 }
 async function setBgFromUnsplah() {
+    const keywords = localStorage.getItem('keywords').replace(/[,]/g, '+');
     const img = new Image();
-    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${getTimeOfDay()}&client_id=Ysjt3sAfpl5oAUJDd4RAGh7XSysXSuwfQzmyzP5BBew`;
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${keywords}&client_id=Ysjt3sAfpl5oAUJDd4RAGh7XSysXSuwfQzmyzP5BBew`;
     const res = await fetch(url);
     const data = await res.json();
     img.src = data.urls.regular;
@@ -34,8 +35,9 @@ async function setBgFromUnsplah() {
 }
 
 async function setBgFromFLickR() {
+    const keywords = localStorage.getItem('keywords').replace(/[,]/g, '+');
     const img = new Image();
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=25a9f4124b3d5bc6219a6107be4f7263&tags=${getTimeOfDay()}&extras=url_l&format=json&nojsoncallback=1`;
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=25a9f4124b3d5bc6219a6107be4f7263&tags=${keywords}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
     img.src = data.photos.photo[getRandomNum(100)].url_l;
@@ -44,7 +46,7 @@ async function setBgFromFLickR() {
     }
 }
 
-function getLinkToImage(randomNum) {
+export function getLinkToImage(randomNum) {
     let random = randomNum;
     let linkSetting = localStorage.getItem('link');
     switch(linkSetting) {
@@ -62,7 +64,7 @@ function getLinkToImage(randomNum) {
 
 function getSlidePrev() {
     (randomNumGlobal == 1) ? randomNumGlobal = 20 : randomNumGlobal--;
-    getLinkToImage(randomNum);
+    getLinkToImage(randomNumGlobal);
 }
 
 function getSlideNext() {

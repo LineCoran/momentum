@@ -1,6 +1,8 @@
 const sourceImagesButtons = document.querySelectorAll('.images__item');
 
 import initSliders from "./slider";
+import definesInputActivity from "./keywords";
+
 
 function setActiveSource() {
     for (let i = 0; i<sourceImagesButtons.length; i++){
@@ -21,7 +23,9 @@ function changeSourceImages() {
             ev.classList.add('images__item-active');
             localStorage.setItem('link', ev.id);
             initSliders();
+            definesInputActivity();
         })
+        
     }
     
 }

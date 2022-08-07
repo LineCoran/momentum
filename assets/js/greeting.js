@@ -1,7 +1,7 @@
 const greeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
 
-function getTimeOfDay(language) {
+export function getTimeOfDay(language) {
     const listTimeOfDay = {
         en: ['night', 'morning', 'afternoon', 'evening'],
         ru: ['ночи', 'утро', 'день', 'вечер']
