@@ -3,7 +3,7 @@ const quoteAuthor = document.querySelector('.author');
 const quoteButton = document.querySelector('.change-quote');
 
 function getRandomNum(max) {
-    return Math.floor(Math.random() * max + 1);
+    return Math.floor(Math.random() * max);
 }
 
 async function getQuotes() {

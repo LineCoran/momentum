@@ -27,3 +27,12 @@ initTraslation();
 
 import initSourceImage from "./imageSource";
 initSourceImage();
+
+import initKeyWords from "./keywords";
+initKeyWords();
+
+import { setKeyWordsToLocaleStorage } from "./keywords";
+setKeyWordsToLocaleStorage();
+
+import { setStartKeyWords } from "./keywords";
+setStartKeyWords();
