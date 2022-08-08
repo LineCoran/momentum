@@ -3,18 +3,19 @@ import { getLinkToImage } from "./slider";
 import { randomNumGlobal } from "./slider";
 
 export const keyWordsInput = document.getElementById('keywords-input');
+const keyWordsInputLabel = document.querySelector('.keywords__label');
+export const clearKeyWordsButton = document.getElementById('clearKeyWords');
 const keyWordsList = document.querySelector('.keywords-list');
 const setKeyWordsButton = document.getElementById('setKeyWords');
-const KEY_WORDS = [];
+let KEY_WORDS = [];
 const MAX_COUNTS_KEY_WORDS = 15;
-// const MAX_WORDS_IN_KEY_WORD = 1;
-// const MAX_LENGTH_OF_WORD = 12;
 const MIN_LENGTH_OF_WORD = 1;
 
 let globalNewElement;
 let keyWordListItems;
 let keyWordsListButtons;
 let keyWordsCounter = 0;
+
 
 export function setKeyWordsToLocaleStorage() {
     setKeyWordsButton.addEventListener('click', function () {
@@ -30,13 +31,27 @@ export function setKeyWordsToLocaleStorage() {
     })
 }
 
-
 export function definesInputActivity() {
     let currentSourceLink = localStorage.getItem('link');
     if (currentSourceLink == 'github') {
         keyWordsInput.setAttribute('disabled', 'disabled');
+        clearKeyWordsButton.setAttribute('disabled', 'disabled');
+        setKeyWordsButton.setAttribute('disabled', 'disabled');
+        clearKeyWordsButton.style.transform = "scale(0)";
+        setKeyWordsButton.style.transform = "scale(0)";
+        keyWordsList.style.transform = "scale(0)";
+        keyWordsInput.style.transform = "translateY(17px)";
+        keyWordsInputLabel.style.transform = "translateY(17px)";
+
     } else {
         keyWordsInput.removeAttribute('disabled');
+        clearKeyWordsButton.removeAttribute('disabled');
+        setKeyWordsButton.removeAttribute('disabled');
+        clearKeyWordsButton.style.transform = "scale(1)";
+        setKeyWordsButton.style.transform = "scale(1)";
+        keyWordsList.style.transform = "scale(1)";
+        keyWordsInput.style.transform = "translateY(0px)";
+        keyWordsInputLabel.style.transform = "translateY(0px)";
     }
 }
 
@@ -54,7 +69,6 @@ function createKeyWordsComponent(word) {
     keyWordName.innerHTML = word;
     keyWordItem.append(keyWordName);
     keyWordItem.append(keyWordIcon);
-
     keyWordsCounter++;
 
     return keyWordItem;
@@ -77,13 +91,13 @@ function deleteKeyWord() {
             let number = target.id;
             for (let i = 0; i < keyWordListItems.length; i++) {
                 if (keyWordListItems[i].classList.contains(number)) {
-                    keyWordListItems[i].remove();
+                    keyWordListItems[i].classList.remove('keyword-item-visible')
+                    setTimeout( () =>  keyWordListItems[i].remove(), 100)
                     KEY_WORDS.splice(i, 1);
                     keyWordsCounter--;
                     return;
                 }
             }
-
         })
     }
 
@@ -96,15 +110,7 @@ function createAndShowKeyWords(keywords) {
         return;
     }
     let time = 1;
-    if (KEY_WORDS.length >= MAX_COUNTS_KEY_WORDS) {
-        alert('Максимальное количество ключевых слов')
-        return;
-    }
     let words = word.split(' ');
-    if (word.length <= MIN_LENGTH_OF_WORD) {
-        alert('Слишком короткое')
-        return;
-    }
     for (let i = 0; i < words.length; i++) {
         let newElement = createKeyWordsComponent(words[i].trim());
         keyWordsList.append(newElement);
@@ -123,12 +129,26 @@ function setKeyWords() {
     keyWordsInput.addEventListener('change', () => createAndShowKeyWords(keyWordsInput.value));
 }
 
+export function setStartKeyWords() {
+    let wordsFromLocaleStorage = localStorage.getItem('keywords').replace(/[,]/g, ' ');
+    createAndShowKeyWords(wordsFromLocaleStorage);
+}
+
 export default function initKeyWords() {
     definesInputActivity();
     setKeyWords();
 }
 
-export function setStartKeyWords() {
-    let wordsFromLocaleStorage = localStorage.getItem('keywords').replace(/[,]/g, ' ');
-    createAndShowKeyWords(wordsFromLocaleStorage);
+export function clearAllKeyWords() {
+    console.log(KEY_WORDS);
+        let time = 100;
+    for (let i = 0; i < keyWordListItems.length; i++) {
+            keyWordListItems[i].classList.remove('keyword-item-visible')
+            setTimeout( () =>  keyWordListItems[i].remove(), time)
+            // KEY_WORDS.splice(i, 1);
+            keyWordsCounter--;
+    }
+            localStorage.removeItem('keywords');
+            KEY_WORDS = [];
 }
+
