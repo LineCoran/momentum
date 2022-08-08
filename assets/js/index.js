@@ -29,10 +29,11 @@ import initSourceImage from "./imageSource";
 initSourceImage();
 
 import initKeyWords from "./keywords";
-initKeyWords();
-
+import { clearAllKeyWords } from "./keywords";
 import { setKeyWordsToLocaleStorage } from "./keywords";
-setKeyWordsToLocaleStorage();
-
 import { setStartKeyWords } from "./keywords";
+import { clearKeyWordsButton } from "./keywords";
+initKeyWords();
+setKeyWordsToLocaleStorage();
 setStartKeyWords();
+clearKeyWordsButton.addEventListener('click', clearAllKeyWords);
