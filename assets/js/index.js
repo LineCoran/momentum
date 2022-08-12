@@ -37,3 +37,6 @@ initKeyWords();
 setKeyWordsToLocaleStorage();
 setStartKeyWords();
 clearKeyWordsButton.addEventListener('click', clearAllKeyWords);
+
+import listenerForWidjetsButons from "./widjet";
+listenerForWidjetsButons();

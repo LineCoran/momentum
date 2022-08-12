@@ -207,7 +207,7 @@
     background-color: #f44336;
 }
 
-#button .checkbox:checked+.knobs:before {
+/* #button .checkbox:checked+.knobs:before {
     left: -28px;
 }
 
@@ -216,5 +216,19 @@
 }
 
 #button .checkbox:checked~.layer {
+    background-color: #fcebeb;
+} */
+
+/* active or inactive widjet */
+
+#button .inactive + .knobs:before {
+    left: -28px;
+}
+
+#button .inactive + .knobs:after {
+    right: 4px;
+}
+
+#button .inactive ~.layer {
     background-color: #fcebeb;
 }
