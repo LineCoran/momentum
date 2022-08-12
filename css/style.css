@@ -400,3 +400,7 @@ body {
     padding: 5px;
   }
 }
+
+.invisible {
+  transform: scale(0);
+}
