@@ -40,19 +40,23 @@ export async function getWheter() {
         weatherWind.innerHTML = `${LANGUAGES.wind[lang]} ${Math.round(data.wind.speed)} ${LANGUAGES.speed[lang]}`;
         weatherHumidity.innerHTML = `${LANGUAGES.humidity[lang]} ${data.main.humidity}%`;
         weatherDescription.innerHTML = data.weather[0].description;
-        window.addEventListener('beforeunload', setLocaleStorage);
+        localStorage.setItem('city', country.value);
     } catch {
-        alert("city doesn't exist")
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.value}&lang=${lang}&appid=ef4b203b5c247d84f19012a3a078402b&units=metric`;
-        const res = await fetch(url);
-        const data = await res.json();
-        weatherIcon.className = 'weather-icon owf';
-        weatherIcon.classList.add(`owf-${data.weather[0].id}`)
-        weatherTemp.innerHTML = `${Math.round(data.main.temp)}°C`;
-        weatherWind.innerHTML = `${LANGUAGES.wind[lang]} ${Math.round(data.wind.speed)} ${LANGUAGES.speed[lang]}`;
-        weatherHumidity.innerHTML = `${LANGUAGES.humidity[lang]} ${data.main.humidity}%`;
-        weatherDescription.innerHTML = data.weather[0].description;
-        window.removeEventListener('beforeunload', setLocaleStorage);
+        weatherTemp.innerHTML = '';
+        weatherDescription.innerHTML = 'City not found';
+        weatherWind.innerHTML = ``;
+        weatherHumidity.innerHTML = ``;
+        weatherBlock.classList.add('weather-error2');
+        setTimeout(function() {
+            weatherBlock.classList.remove('weather-error2')
+        }, 500);
+        weatherDescription.classList.add('weather-error');
+        country.classList.add('weather-error');
+        setTimeout(function() {
+            weatherDescription.classList.remove('weather-error')
+            country.classList.remove('weather-error')
+        }, 500);
+        
     }
     
 }
@@ -77,10 +81,6 @@ function createCity() {
     }
     weatherBlock.prepend(city);
     country = document.querySelector('.city');
-}
-
-function setLocaleStorage() {
-    localStorage.setItem('city', country.value)
 }
 
 

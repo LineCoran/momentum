@@ -14,34 +14,52 @@
 
 <body id="body">
     <header class="header">
-        <div class="player" id="player1">
-            <div class="player-controls">
-                <button class="play-prev player-icon"></button>
-                <button class="play player-icon"></button>
-                <button class="play-next player-icon"></button>
+        <div class="player__main-main" id="player1">
+            <div class="player" >
+                <div class="player-controls">
+                    <button class="play-prev player-icon"></button>
+                    <button class="play player-icon"></button>
+                    <button class="play-next player-icon"></button>
+                </div>
+                <div class="audio__image">
+                </div>
+                <div class="audio__wraper-main">
+                    <div class="audio__wrapper">
+                        <div class="audio__container">
+                            <p class="track__name">Love Is Gone</p>
+                            <p class="track__singer">David Guetta</p>
+                        </div>
+                        <input class="progress" type="range" min="0" max="100" value="0" id="progress__audio">
+                        <div class="time__container">
+                            <p class="exact-time" id="exact-time">00:00</p>
+                            <p class="duration-time" id="duration-time">00:00</p>
+                        </div>
+                        <div class="volume__container">
+                            <input class="volume progress" type="range" min="0" max="100" value="20">
+                            <div class="audio-mute"></div>
+                        </div>
+                    </div>
+                    <ul class="play-list"></ul>
+                </div>
+                <div class="playlist-button" id="playlist__btn">
+                    <div class="playlist-button__item playlist-button__item-dot playlist-button__item-active"></div>
+                    <div class="playlist-button__item playlist-button__item-list"></div>
+                </div>
             </div>
-            <div class="audio__container">
-                <p class="track__name">Track name</p>
-            </div>
-            <input class="progress" type="range" min="0" max="100" value="0" id="progress__audio">
-            <div class="time__container">
-                <p class="exact-time" id="exact-time">00:00</p>
-                <p class="duration-time" id="duration-time">00:00</p>
-            </div>
-            <div class="volume__container">
-                <input class="volume progress" type="range" min="0" max="100" value="20">
-                <button class="audio-mute">Вкл</button>
-            </div>
-            <ul class="play-list"></ul>
+            <div class="player-background"></div>
         </div>
+       
 
         <div class="weather" id="weather1">
-            <i class="weather-icon owf"></i>
-            <div class="weather-error"></div>
             <div class="description-container">
-                <span class="temperature"></span>
-                <span class="weather-description"></span>
+                <i class="weather-icon owf"></i>
+                <div class="description-container__temp">
+                    <div class="weather-description"></div>
+                    <span class="temperature"></span> 
+                </div>
+                   
             </div>
+            <div class="weather-error"></div>
             <div class="wind"></div>
             <div class="humidity"></div>
         </div>
@@ -204,7 +222,7 @@
         <date class="date" id="date1"></date>
         <div class="greeting-container" id="greeting1">
             <span class="greeting"></span>
-            <input type="text" class="name" placeholder="[Your name]">
+            <input type="text" class="name">
         </div>
     </main>
     <footer class="footer">

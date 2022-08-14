@@ -7,15 +7,27 @@ const audioPlayList = document.querySelector('.play-list');
 const audioProgress = document.getElementById('progress__audio');
 const audioVolume = document.querySelector('.volume');
 const audioCurrentName = document.querySelector('.track__name');
+const audioCurrentSinger = document.querySelector('.track__singer');
 const audioMuteButton = document.querySelector('.audio-mute');
 const audioExactTime = document.getElementById('exact-time');
 const audioDurationTime = document.getElementById('duration-time');
+const audioPlayListButton = document.getElementById('playlist__btn');
+const audioWrapper = document.querySelector('.audio__wrapper');
+const audioCurrentImage = document.querySelector('.audio__image');
+const audioCurrentBackgroundImage = document.querySelector('.player-background');
+const audioPlayListItems = document.querySelectorAll('.playlist-button__item');
 let currentTimeGlobal = 0;
 let currentVolume;
 let isPlay = false;
 let audioNumber = 0;
 let playListItem;
 let playListBtn;
+
+const audioCurrentVolumeBg = {
+    off: `url(assets/svg/volume-off.svg) center center / cover no-repeat`,
+    middle: `url(assets/svg/volume-middle.svg) center center / cover no-repeat`,
+    max: `url(assets/svg/volume-max.svg) center center / cover no-repeat`,
+}
 
 function createPlayList() {
     playList.forEach(function (el) {
@@ -54,6 +66,8 @@ function playAudio() {
         audio.volume = audioVolume.value/100;
         audio.play();
         audioCurrentName.innerHTML = playList[audioNumber].title;
+        audioCurrentSinger.innerHTML = playList[audioNumber].singer;
+        setAudioBackground(audioNumber);
         playListBtn[audioNumber].classList.add('pause');
         playListItem[audioNumber].classList.add('item-active');
         audioButtonPlay.classList.add('pause');
@@ -131,17 +145,28 @@ function setProgress() {
 
 function setValue() {
     audio.volume = audioVolume.value/100;
+    audioMuteButton.style.background = audioCurrentVolumeBg[checkAudioVolume(audioVolume.value)];
+}
+
+function checkAudioVolume(value) {
+    let result;
+    if (value == 0) {
+        result = 'off';
+    } else if (value < 50){
+        result = 'middle';
+    } else {
+        result = 'max';
+    }
+    return result;
 }
 
 function muteAudio() {
     if (audioVolume.value > 0) {
         currentVolume = audioVolume.value;
         audioVolume.value = 0;
-        audioMuteButton.innerHTML = "Выкл"
         setValue();
     } else {
         audioVolume.value = currentVolume;
-        audioMuteButton.innerHTML = "Вкл"
         setValue();
     }
 }
@@ -162,6 +187,23 @@ function setDurationTime(duration) {
 function setExactTime() {
     audioExactTime.innerHTML = convertTime(currentTimeGlobal);
     setTimeout(setExactTime, 100);
+}
+
+audioPlayListButton.addEventListener('click', function() {
+    audioPlayList.classList.toggle('play-list-visible');
+    audioWrapper.classList.toggle('play-list-invisible');
+
+    audioPlayListItems.forEach((item) => item.classList.toggle('playlist-button__item-active'))
+})
+
+function setAudioBackground(num) {
+    const img = new Image();
+    img.src = playList[num].img;
+    console.log(img.src);
+    img.onload = () => {
+        audioCurrentBackgroundImage.style.background = `url(${img.src}) center center / cover no-repeat`; 
+        audioCurrentImage.style.background = `url(${img.src}) center center / cover no-repeat`;  
+    }
 }
 
 export default function initPlayList() {  
