@@ -1,6 +1,11 @@
 const greeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
 
+const placeHolder = { 
+    en: '[Enter your name]',
+    ru: '[Введите ваше имя]',
+}
+
 export function getTimeOfDay(language) {
     const listTimeOfDay = {
         en: ['night', 'morning', 'afternoon', 'evening'],
@@ -33,7 +38,7 @@ function showGreeting() {
                 break;    
         }
     }
-    
+    name.setAttribute('placeholder', placeHolder[currentLanguage]); 
     greeting.innerHTML = greetingText;
     window.addEventListener('beforeunload', setLocaleStorage);
     window.addEventListener('load', getLocaleStorage);

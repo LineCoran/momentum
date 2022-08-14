@@ -1,32 +1,51 @@
 const playList = [
+    {      
+        singer: 'David Guetta',
+        title: 'Love Is Gone',
+        src: 'assets/sounds/LoveIsGone.mp3',
+        img: 'assets/img/guetta.jpg',
+        duration: 26,
+    },
+
     {
-        title: 'Aqua Caelestis',
-        //src: './../../momentum/assets/sounds/AquaCaelestis.mp3',
-        src: 'assets/sounds/AquaCaelestis.mp3',
-        duration: 39,
+        singer: '50 cent',
+        title: 'In Da Club',
+        src: 'assets/sounds/InDaClub.mp3',
+        img: 'assets/img/50cent.jpg',
+        duration: 38,
     },
     
     {
-        title: 'Ennio Morricone',
-        //src: './../../momentum/assets/sounds/EnnioMorricone.mp3',
-        src: 'assets/sounds/EnnioMorricone.mp3',
-        duration: 97,
+        singer: 'Макс Корж',
+        title: 'Свой дом',
+        src: 'assets/sounds/SvoiDom.mp3',
+        img: 'assets/img/dom.jpg',
+        duration: 63,
     },
     
     {      
-        title: 'River Flows In You',
-        //src: './../../momentum/assets/sounds/RiverFlowsInYou.mp3',
-        src: 'assets/sounds/RiverFlowsInYou.mp3',
-        duration: 97
+        singer: 'The Green Children',
+        title: 'Dreams',
+        src: 'assets/sounds/Dreams.mp3',
+        img: 'assets/img/dreams.jpg',
+        duration: 51,
     },
 
     {      
-        title: 'Summer Wind',
-        //src: './../../momentum/assets/sounds/SummerWind.mp3',
-        src: 'assets/sounds/SummerWind.mp3',
-        duration: 39
+        singer: 'Эрика',
+        title: 'Яд',
+        src: 'assets/sounds/Jad.mp3',
+        img: 'assets/img/jad.jpg',
+        duration: 41,
     },
 
+    {      
+        singer: 'Freddie Dredd',
+        title: 'Opaul',
+        src: 'assets/sounds/Opaul.mp3',
+        img: 'assets/img/opaul.jpg',
+        duration: 33,
+    },
 ]
 
 export default playList;
