@@ -19,7 +19,7 @@ function setBgFromGitHub(random) {
     const img = new Image();
     img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${getTimeOfDay()}/${String(randomNum).padStart(2, "0")}.jpg`;
     img.onload = () => {
-        body.style.background = `url(${img.src})`;
+        body.style.backgroundImage = `url(${img.src})`;
     }
 }
 async function setBgFromUnsplah() {
@@ -30,7 +30,7 @@ async function setBgFromUnsplah() {
     const data = await res.json();
     img.src = data.urls.regular;
     img.onload = () => {
-        body.style.background = `url(${img.src})`;
+        body.style.backgroundImage = `url(${img.src})`;
     }
 }
 
@@ -42,7 +42,7 @@ async function setBgFromFLickR() {
     const data = await res.json();
     img.src = data.photos.photo[getRandomNum(100)].url_l;
     img.onload = () => {
-        body.style.background = `url(${img.src})`;
+        body.style.backgroundImage = `url(${img.src})`;
     }
 }
 

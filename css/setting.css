@@ -102,6 +102,8 @@
 .setting__componets {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .components__left {
@@ -142,8 +144,8 @@
 
 .button {
     position: relative;
-    width: 60px;
-    height: 30px;
+    width: 44px;
+    height: 22px;
     overflow: hidden;
 }
 
@@ -178,10 +180,10 @@
 #button .knobs:after {
     content: "";
     position: absolute;
-    top: 4px;
+    top: 1.5px;
     left: 4px;
-    width: 15px;
-    height: 5px;
+    width: 10px;
+    height: 1px;
     color: #fff;
     font-size: 10px;
     font-weight: bold;
@@ -207,19 +209,6 @@
     background-color: #f44336;
 }
 
-/* #button .checkbox:checked+.knobs:before {
-    left: -28px;
-}
-
-#button .checkbox:checked+.knobs:after {
-    right: 4px;
-}
-
-#button .checkbox:checked~.layer {
-    background-color: #fcebeb;
-} */
-
-/* active or inactive widjet */
 
 #button .inactive + .knobs:before {
     left: -28px;
