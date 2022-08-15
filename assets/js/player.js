@@ -33,7 +33,7 @@ function createPlayList() {
     playList.forEach(function (el) {
         const li = document.createElement('li');
         li.classList.add('play-item');
-        li.innerHTML = el.title;
+        li.innerHTML = el.singer+" - "+el.title;
         audioPlayList.append(li);
 
         const btn = document.createElement('span');
@@ -213,7 +213,7 @@ export default function initPlayList() {
     audioButtonPlay.addEventListener('click', playAudio);
     audio.addEventListener('ended', playNext);
     audioProgress.addEventListener('change', setProgress)
-    audioVolume.addEventListener('change', setValue);
+    audioVolume.addEventListener('input', setValue);
     audioMuteButton.addEventListener('click', muteAudio);
     audio.addEventListener('timeupdate', updateProgress);
     audioProgress.oninput = function() {

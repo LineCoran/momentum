@@ -36,10 +36,11 @@ body {
   font-size: 16px;
   color: #fff;
   text-align: center;
-  background-position: center;
+  background-position: center center;
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
-  background-blend-mode: multiply;
+  /* background-blend-mode: multiply; */
+  background-repeat: no-repeat;
   transition: background-image 1s ease-in-out;
 }
 
@@ -269,8 +270,12 @@ body {
   font-weight: 900;
 }
 
+.item-active {
+  color: #5F8AB5;
+}
+
 .item-active::before {
-  color: #C5B358;
+  color: #5F8AB5;
 }
 
 .player-icon,
@@ -433,6 +438,14 @@ body {
 
 .weather-description {
   text-transform: capitalize;
+}
+
+.wind {
+  width: max-content;
+}
+
+.humidity {
+  width: max-content;
 }
 
 .main {
