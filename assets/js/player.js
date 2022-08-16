@@ -199,7 +199,6 @@ audioPlayListButton.addEventListener('click', function() {
 function setAudioBackground(num) {
     const img = new Image();
     img.src = playList[num].img;
-    console.log(img.src);
     img.onload = () => {
         audioCurrentBackgroundImage.style.background = `url(${img.src}) center center / cover no-repeat`; 
         audioCurrentImage.style.background = `url(${img.src}) center center / cover no-repeat`;  

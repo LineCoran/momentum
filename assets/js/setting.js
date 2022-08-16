@@ -32,7 +32,7 @@ export function setGlobalKeyWords() {
 }
 
 function setGlobalActiveWidjets() {
-    let defaultActiveWidjets = ['player', 'weather', 'time', 'date', 'greeting', 'quotes'];
+    let defaultActiveWidjets = ['player', 'weather', 'time', 'date', 'greeting', 'quotes', 'todo'];
     for (let i = 0; i < defaultActiveWidjets.length; i++) {
         if (!localStorage.getItem(defaultActiveWidjets[i])) {
             localStorage.setItem(defaultActiveWidjets[i], 'true');
