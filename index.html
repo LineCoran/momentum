@@ -14,40 +14,65 @@
 
 <body id="body">
     <header class="header">
-        <div class="player__main-main" id="player1">
-            <div class="player" >
-                <div class="player-controls">
-                    <button class="play-prev player-icon"></button>
-                    <button class="play player-icon"></button>
-                    <button class="play-next player-icon"></button>
-                </div>
-                <div class="audio__image">
-                </div>
-                <div class="audio__wraper-main">
-                    <div class="audio__wrapper">
-                        <div class="audio__container">
-                            <p class="track__name">Love Is Gone</p>
-                            <p class="track__singer">David Guetta</p>
+        <div class="left__side">
+            <div class="player__main-main" id="player1">
+                <div class="player" >
+                    <div class="player-controls">
+                        <button class="play-prev player-icon"></button>
+                        <button class="play player-icon"></button>
+                        <button class="play-next player-icon"></button>
+                    </div>
+                    <div class="audio__image">
+                    </div>
+                    <div class="audio__wraper-main">
+                        <div class="audio__wrapper">
+                            <div class="audio__container">
+                                <p class="track__name">Love Is Gone</p>
+                                <p class="track__singer">David Guetta</p>
+                            </div>
+                            <input class="progress" type="range" min="0" max="100" value="0" id="progress__audio">
+                            <div class="time__container">
+                                <p class="exact-time" id="exact-time">00:00</p>
+                                <p class="duration-time" id="duration-time">00:00</p>
+                            </div>
+                            <div class="volume__container">
+                                <input class="volume progress" type="range" min="0" max="100" value="20">
+                                <div class="audio-mute"></div>
+                            </div>
                         </div>
-                        <input class="progress" type="range" min="0" max="100" value="0" id="progress__audio">
-                        <div class="time__container">
-                            <p class="exact-time" id="exact-time">00:00</p>
-                            <p class="duration-time" id="duration-time">00:00</p>
-                        </div>
-                        <div class="volume__container">
-                            <input class="volume progress" type="range" min="0" max="100" value="20">
-                            <div class="audio-mute"></div>
+                        <ul class="play-list"></ul>
+                    </div>
+                    <div class="playlist-button" id="playlist__btn">
+                        <div class="playlist-button__item playlist-button__item-dot playlist-button__item-active"></div>
+                        <div class="playlist-button__item playlist-button__item-list"></div>
+                    </div>
+                </div>
+                <div class="player-background"></div>
+            </div>
+
+
+            <div class="todo" id="todo1">
+                <div class="todo__wrapper">
+                    <h2 class="todo__title">
+                        To Do List
+                    </h2>
+                    <div class="todo__input-wrapper">
+                        <input class="todo__input keywords__input" type="text" id="todoTask" required>
+                        <label class="keywords__label todo__label " for="todoTask">What is your task</label>
+                        <div class="todo__buttons">
+                            <button class="todo__button" id="setTask"><span
+                                    class="todo__button__icon" id="todoButtonIcon"><img src="assets/svg/checked.svg"
+                                        alt="keyword__check" height="16" width="16"
+                                        class="key__word__log"></span></button>
                         </div>
                     </div>
-                    <ul class="play-list"></ul>
-                </div>
-                <div class="playlist-button" id="playlist__btn">
-                    <div class="playlist-button__item playlist-button__item-dot playlist-button__item-active"></div>
-                    <div class="playlist-button__item playlist-button__item-list"></div>
+                    <div class="todo__tasks-list">
+                    </div>
                 </div>
             </div>
-            <div class="player-background"></div>
         </div>
+        
+
        
 
         <div class="weather" id="weather1">
@@ -102,15 +127,15 @@
                         <div class="keywords-box">
                             <div class="keywords__input-wrapper">
                                 <input class="keywords__input" type="text" id="keywords-input" required>
-                                <label class="keywords__label" for="keywords-input">Key Words</label>
+                                <label class="keywords__label keywords__label-label" for="keywords-input" id="keywordsinputmain">Key Words</label>
                                 <div class="keywords__buttons">
                                     <button class="keyword__button keyword__button-green" id="setKeyWords"><span
-                                            class='keyword__button__text'>Применить</span><span
+                                            class='keyword__button__text' id="done__text">Применить</span><span
                                             class="keyword__button__icon"><img src="assets/svg/checked.svg"
                                                 alt="keyword__check" height="16" width="16"
                                                 class="key__word__log"></span></button>
                                     <button class="keyword__button keyword__button-red" id="clearKeyWords"><span
-                                            class='keyword__button__text'>Убрать</span><span
+                                            class='keyword__button__text' id="delete__text">Убрать</span><span
                                             class="keyword__button__icon"><img src="assets/svg/cross.svg"
                                                 alt="keyword__check" height="16" width="16"
                                                 class="key__word__log"></span></button>
@@ -201,6 +226,20 @@
 
                                     <div class="button r" id="button">
                                         <input type="checkbox" class="checkbox" id="quotes">
+                                        <div class="knobs"></div>
+                                        <div class="layer"></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting__vidget">
+                                    <div class="vidjet__name">
+                                        <img src="assets/svg/todo.svg" alt="time-log" width="25" height="25"
+                                            class="vidget__img">
+                                        <p class="vidjet__text">To Do</p>
+                                    </div>
+
+                                    <div class="button r" id="button">
+                                        <input type="checkbox" class="checkbox" id="todo">
                                         <div class="knobs"></div>
                                         <div class="layer"></div>
                                     </div>

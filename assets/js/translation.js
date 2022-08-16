@@ -3,6 +3,7 @@ import getWheter from "./weather";
 import initQuotes from "./quotes";
 import showDate from "./date";
 import initgPanel from "./settingPanel";
+import { startWordsForToDoList } from "./todo";
 
 const languagesButtons = document.querySelectorAll('.language__img');
 
@@ -28,6 +29,7 @@ function changeLanguage() {
             showGreeting();
             showDate();
             initgPanel();
+            startWordsForToDoList();
         })
     }
 }

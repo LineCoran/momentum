@@ -3,7 +3,7 @@ import { getLinkToImage } from "./slider";
 import { randomNumGlobal } from "./slider";
 
 export const keyWordsInput = document.getElementById('keywords-input');
-const keyWordsInputLabel = document.querySelector('.keywords__label');
+export const keyWordsInputLabel = document.querySelector('.keywords__label-label');
 export const clearKeyWordsButton = document.getElementById('clearKeyWords');
 const keyWordsList = document.querySelector('.keywords-list');
 const setKeyWordsButton = document.getElementById('setKeyWords');
@@ -79,26 +79,30 @@ function findWordListAndItems() {
     keyWordsListButtons = document.querySelectorAll('.keyword-icon');
 }
 
-function deleteKeyWord() {
+function deleteChangeOla(item) {
+        findWordListAndItems();
+        let target = item.target;
+        let number = target.id;
+        for (let i = 0; i < keyWordListItems.length; i++) {
+            if (keyWordListItems[i].classList.contains(number)) {
+                keyWordListItems[i].classList.remove('keyword-item-visible')
+                setTimeout( () =>  keyWordListItems[i].remove(), 100)
+                KEY_WORDS.splice(i, 1);
+                keyWordsCounter--;
+                return;
+            }
+        }
+    }
 
-    findWordListAndItems()
+
+function deleteKeyWord() {
+    
+    findWordListAndItems();
+
+    
 
     for (let i = 0; i < keyWordsListButtons.length; i++) {
-
-        keyWordsListButtons[i].addEventListener('click', function (item) {
-            findWordListAndItems();
-            let target = item.target;
-            let number = target.id;
-            for (let i = 0; i < keyWordListItems.length; i++) {
-                if (keyWordListItems[i].classList.contains(number)) {
-                    keyWordListItems[i].classList.remove('keyword-item-visible')
-                    setTimeout( () =>  keyWordListItems[i].remove(), 100)
-                    KEY_WORDS.splice(i, 1);
-                    keyWordsCounter--;
-                    return;
-                }
-            }
-        })
+        keyWordsListButtons[i].addEventListener('click', deleteChangeOla)
     }
 
 
@@ -140,7 +144,6 @@ export default function initKeyWords() {
 }
 
 export function clearAllKeyWords() {
-    console.log(KEY_WORDS);
         let time = 100;
     for (let i = 0; i < keyWordListItems.length; i++) {
             keyWordListItems[i].classList.remove('keyword-item-visible')

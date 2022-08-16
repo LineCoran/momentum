@@ -40,3 +40,6 @@ clearKeyWordsButton.addEventListener('click', clearAllKeyWords);
 
 import listenerForWidjetsButons from "./widjet";
 listenerForWidjetsButons();
+
+import initToDoList from "./todo";
+initToDoList();
